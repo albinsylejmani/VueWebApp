@@ -1,34 +1,67 @@
 <template>
-    <div>
-      <h1>Login</h1>
-      <form @submit.prevent="login">
-        <!-- Add your form fields here -->
-        <input type="text" v-model="email" placeholder="Email" />
-        <input type="password" v-model="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
+  <div class="home-container">
+    <div class="home-form">
+      <div class="words">
+        <h2 class="home-title">You are now Home</h2>
+        <p class="home-text">All you can do here is get out</p>
+      </div>
+      <button class="logout-button btn btn-danger" @click="logout">Logout</button>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'LoginForm',
-    data() {
-      return {
-        email: '',
-        password: '',
-      };
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeForm',
+  methods: {
+    logout() {
+      this.$router.push('/Login');
     },
-    methods: {
-      login() {
-        // Perform login logic here
-        // You can access the entered email and password via this.email and this.password
-      },
-    },
-  };
-  </script>
-  
-  <style>
-  /* Add your custom CSS styles for the Login component here */
-  </style>
-  
+  },
+};
+</script>
+
+<style>
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 18px;
+  text-align: center;
+}
+
+.words {
+  margin-bottom: 60px;
+}
+
+.home-form {
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 610px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-title {
+  margin-top: 0;
+}
+
+.home-text {
+  color: #b0b0b0;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.logout-button {
+  width: 250px !important;
+  margin-top: 40px;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+</style>
